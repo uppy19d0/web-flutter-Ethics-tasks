@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:historyEthics/data/peoples.dart';
 import 'package:historyEthics/pages/details.dart';
 
 class CardPeople extends StatelessWidget {
-  final List<dynamic> peoples;
+  final List<People> peoples;
   const CardPeople({Key key, @required this.peoples}) : super(key: key);
 
   @override
@@ -24,11 +25,10 @@ class CardPeople extends StatelessWidget {
           pagination: new SwiperPagination(),
           control: new SwiperControl(),
           layout: SwiperLayout.STACK,
-          onTap: (indexs) => Navigator.push(
+          onTap: (index) => Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) =>
-                      Details(people: peoples[indexs].toString()))),
+                  builder: (context) => Details(people: peoples[index]))),
           itemCount: peoples.length),
     );
   }
@@ -36,6 +36,7 @@ class CardPeople extends StatelessWidget {
   Widget _informationPeople(index) {
     return ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
-        child: Image.network(peoples[index].toString(), fit: BoxFit.cover));
+        child:
+            Image.network(peoples[index].photo.toString(), fit: BoxFit.cover));
   }
 }

@@ -19,7 +19,7 @@ class AppDrawer extends StatelessWidget {
           // Divider(),
           // _createDrawerItem(icon: Icons.bug_report, text: 'Report an issue'),
           ListTile(
-            title: Text('0.0.1'),
+            title: Text('ESTA ES LA VERSION 1.0'),
             onTap: () {},
           ),
         ],
@@ -38,7 +38,7 @@ class AppDrawer extends StatelessWidget {
           Positioned(
               bottom: 12.0,
               left: 16.0,
-              child: Text("Flutter Step-by-Step",
+              child: Text("TAKS OF ETICA",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:historyEthics/data/peoples.dart';
 import 'package:historyEthics/widgets/card_peoples.dart';
 import 'package:historyEthics/widgets/drawer.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key key}) : super(key: key);
+  final List<People> listPeople;
+  const Home({Key key, this.listPeople}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +20,42 @@ class Home extends StatelessWidget {
         ),
         drawer: AppDrawer(),
         body: Container(
-            child: Column(children: [
-          _peoplesSwipper(),
-        ])));
+            child: Column(children: [_peoplesSwipper(), _information()])));
   }
 
   Widget _peoplesSwipper() {
     return CardPeople(
-      peoples: [
-        "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2014/11/17/14162263394528.jpg",
-        "https://i.ytimg.com/vi/U-SV0tx6xss/maxresdefault.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Marx_color.jpg/220px-Marx_color.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/4/4f/Simmel_01.JPG",
-        "https://www.revistaesfinge.com/media/k2/items/cache/2a1efaf12d575df75b411da94af12a4a_XL.jpg"
-      ],
+      peoples: [persona, persona1, persona2, persona3, persona4],
+    );
+  }
+
+  Widget _information() {
+    return Center(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        SizedBox(
+          height: 10.0,
+        ),
+        Text(
+          "TAREA PAGINA WEB DE CIENTIFICO DE LA ETICA MAS IMPORTANTE",
+          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        Text(
+          "Hecho por :Luis Aneuris Tavarez De Jesus 2018-6927",
+          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 30.0,
+        ),
+        Text(
+            "Para ver la informacion de estos personajes, debemos de dale click a la foto del personaje",
+            style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue))
+      ]),
     );
   }
 }
